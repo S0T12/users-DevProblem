@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 @Entity('users')
-export class User {
+export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -21,13 +21,13 @@ export class User {
   @Column({ type: 'varchar', nullable: false })
   password: string;
 
-  @Column({ type: 'array', default: [] })
+  @Column({ type: 'varchar', default: [] })
   problems: string[];
 
-  @Column({ type: 'array', default: [] })
+  @Column({ type: 'varchar', default: [] })
   ideas: string[];
 
-  @Column({ type: 'array', default: [] })
+  @Column({ type: 'varchar', default: [] })
   devs: string[];
 
   @CreateDateColumn()
