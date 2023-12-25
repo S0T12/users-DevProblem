@@ -12,6 +12,7 @@ export class UsersService {
     @InjectRepository(UserEntity)
     private userRepository: Repository<UserEntity>,
   ) {}
+
   async create(createUserDto: CreateUserDto) {
     try {
       const hash = await bcryptjs.hash(
@@ -19,7 +20,8 @@ export class UsersService {
         +process.env.BCRYPTJS_SALT,
       );
       createUserDto.password = hash;
-      this.userRepository.save(createUserDto);
+      const user = await this.userRepository.save(createUserDto);
+      return user;
     } catch (error) {
       throw error;
     }

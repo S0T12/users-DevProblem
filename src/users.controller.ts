@@ -9,27 +9,27 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @MessagePattern('createUser')
-  create(@Payload() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  async create(@Payload() createUserDto: CreateUserDto) {
+    return await this.usersService.create(createUserDto);
   }
 
   @MessagePattern('findAllUsers')
-  findAll() {
-    return this.usersService.findAll();
+  async findAll() {
+    return await this.usersService.findAll();
   }
 
   @MessagePattern('findOneUser')
-  findOne(@Payload() id: number) {
-    return this.usersService.findOne(id);
+  async findOne(@Payload() id: number) {
+    return await this.usersService.findOne(id);
   }
 
   @MessagePattern('updateUser')
-  update(@Payload() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(updateUserDto.id, updateUserDto);
+  async update(@Payload() updateUserDto: UpdateUserDto) {
+    return await this.usersService.update(updateUserDto.id, updateUserDto);
   }
 
   @MessagePattern('removeUser')
-  remove(@Payload() id: number) {
-    return this.usersService.remove(id);
+  async remove(@Payload() id: number) {
+    return await this.usersService.remove(id);
   }
 }
