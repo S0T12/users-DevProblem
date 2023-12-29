@@ -12,16 +12,16 @@ export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar' })
   name: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar' })
   username: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar' })
   email: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar' })
   password: string;
 
   @Column({ type: 'varchar', default: [] })
