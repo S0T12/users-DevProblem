@@ -24,8 +24,10 @@ export class UsersController {
   }
 
   @MessagePattern('updateUser')
-  async update(@Payload() updateUserDto: UpdateUserDto) {
-    return await this.usersService.update(updateUserDto.id, updateUserDto);
+  async update(
+    @Payload() payload: { id: number; updateUserDto: UpdateUserDto },
+  ) {
+    return await this.usersService.update(payload.id, payload.updateUserDto);
   }
 
   @MessagePattern('removeUser')
