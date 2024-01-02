@@ -23,6 +23,11 @@ export class UsersController {
     return await this.usersService.findOne(id);
   }
 
+  @MessagePattern('findByUsername')
+  async findByUsername(@Payload() username: string) {
+    return await this.usersService.findByUsername(username);
+  }
+
   @MessagePattern('updateUser')
   async update(
     @Payload() payload: { id: number; updateUserDto: UpdateUserDto },
