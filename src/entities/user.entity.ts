@@ -15,7 +15,7 @@ export class UserEntity {
   @Column({ type: 'varchar' })
   name: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   username: string;
 
   @Column({ type: 'varchar' })
@@ -23,15 +23,6 @@ export class UserEntity {
 
   @Column({ type: 'varchar' })
   password: string;
-
-  @Column({ type: 'varchar', default: [] })
-  problems: string[];
-
-  @Column({ type: 'varchar', default: [] })
-  ideas: string[];
-
-  @Column({ type: 'varchar', default: [] })
-  devs: string[];
 
   @CreateDateColumn()
   createdAt: Date;
